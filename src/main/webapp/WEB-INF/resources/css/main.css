@@ -1,3 +1,16 @@
+.container-wrapper {
+    height: 80%;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 300px;
+}
+
+.home-image {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+}
+
 .table {
     table-layout: fixed;
     overflow: auto;
@@ -10,6 +23,8 @@
 .table td {
     text-align: center;
     background: whitesmoke;
-    overflow:hidden;
+
+    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
