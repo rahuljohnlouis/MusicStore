@@ -1,19 +1,24 @@
 package com.emusicstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by RAHUL on 7/21/2016.
  */
 
 @Entity
-public class Product {
+public class Product implements Serializable{
 
+
+    private static final long serialVersionUID = 3729306611754713209L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String productId;
@@ -34,6 +39,13 @@ public class Product {
     @Transient
     private MultipartFile productImage;
 
+    private List<CartItem> cartItemList;
+
+    //mapped by means Product class is mapped by product field
+    //cascade type tells to delete cartItem instance once product is deleted
+    //FetchType.EAGER specifies data is actively being fetched from DB before call is being used.
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
     public String getProductId() {
         return productId;
     }
@@ -112,5 +124,13 @@ public class Product {
 
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
+    }
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
     }
 }
