@@ -4,9 +4,9 @@
     <div class="container">
         <div id="login-box">
             <h2>Login with username and password</h2>
-            <c:if test="${not empty msg}">'
+            <c:if test="${not empty logout}">'
             <div class="msg">
-                ${msg}
+                ${logout}
             </div>
             </c:if>
 
@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password: </label>
-                    <input type="text" id="password" name="password" class="form-control"/>
+                    <input type="password" id="password" name="password" class="form-control"/>
                 </div>
 
                 <input type="submit" value="Submit" class="btn btn-default"/>
