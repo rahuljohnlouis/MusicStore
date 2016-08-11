@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
  * Created by RAHUL on 7/21/2016.
  */
@@ -39,6 +40,8 @@ public class Product implements Serializable{
     @Transient
     private MultipartFile productImage;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<CartItem> cartItemList;
 
     //mapped by means Product class is mapped by product field
