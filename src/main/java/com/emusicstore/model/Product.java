@@ -22,7 +22,7 @@ public class Product implements Serializable{
     private static final long serialVersionUID = 3729306611754713209L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String productId;
+    private int productId;
     @NotEmpty(message = "The Product Name Must Not Be Null.")
     private String productName;
     private String productCategory;
@@ -40,20 +40,18 @@ public class Product implements Serializable{
     @Transient
     private MultipartFile productImage;
 
+    //mapped by means Product class is mapped by product field
+    //cascade type tells to delete cartItem instance once product is deleted
+    //FetchType.EAGER specifies data is actively being fetched from DB before call is being used.
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<CartItem> cartItemList;
 
-    //mapped by means Product class is mapped by product field
-    //cascade type tells to delete cartItem instance once product is deleted
-    //FetchType.EAGER specifies data is actively being fetched from DB before call is being used.
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonIgnore
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
