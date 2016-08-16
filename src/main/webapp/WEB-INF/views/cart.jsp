@@ -35,12 +35,12 @@
                     <th></th>
                     <th></th>
                     <th>Grand Total</th>
-                    <th>{{cart.grandTotal}}</th>
+                    <th>{{calGrandTotal()}}</th>
                     <th></th>
 
                 </tr>
             </table>
-            <a href="<c:url value="/productList"/>" class="btn btn-default">Continue Shopping</a>
+            <a href="<c:url value="/product/productList"/>" class="btn btn-default">Continue Shopping</a>
             </div>
         </section>
     </div>
