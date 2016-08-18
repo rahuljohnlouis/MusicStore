@@ -6,9 +6,9 @@
     <var name="order" class="com.emusicstore.model.CustomerOrder" />
 
     <action-state id="addCartToOrder">
-        <evaluate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart"/>
-        <transition to="InvalidCartWarning" on-exception="java.io.IOException"/>
-        <transition to="collectCustomerInfo"/>
+        <evaluate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart" />
+        <transition to="InvalidCartWarning" on-exception="java.io.IOException" />
+        <transition to="collectCustomerInfo" />
     </action-state>
 
     <view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp" model="order">
@@ -40,7 +40,7 @@
         <transition to="endState"/>
     </view-state>
 
-    <end-state id="cancelCheckout" view="checkoutCancelled.jsp"/>
+    <end-state id="cancelCheckout" view="checkOutCancelled.jsp"/>
 
     <global-transitions>
         <transition on="cancel" to="cancelCheckout"/>

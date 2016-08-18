@@ -76,6 +76,7 @@ public class CartResources {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem (@PathVariable(value = "productId") int productId) {
         CartItem cartItem = cartItemService.getCartItemByProductId(productId);
+        System.out.println(cartItem.toString());
         cartItemService.removeCartItem(cartItem);
 
     }

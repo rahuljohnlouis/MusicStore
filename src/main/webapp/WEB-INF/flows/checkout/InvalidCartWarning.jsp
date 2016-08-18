@@ -4,7 +4,7 @@
     <div class="container">
         <section class="jumbotron">
             <div class="container">
-                <h1>Customer Registered Successfully</h1>
+                <h1>Invalid Cart</h1>
             </div>
         </section>
 
@@ -16,6 +16,4 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-<script src="<c:url value="/resources/js/controller.js" />"></script>
 <%@include file="/WEB-INF/views/template/footer.jsp"%>
