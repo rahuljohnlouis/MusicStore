@@ -110,8 +110,5 @@
             <h2>Accessories</h2>
             <p>All musical and related geeky goods</p>
         </div><!-- /.col-lg-4 -->
-
-
-
     <%@include file="/WEB-INF/views/template/footer.jsp" %>
 
